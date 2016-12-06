@@ -2,6 +2,8 @@ package practiceProblems;
 
 public class ABCPath {
 	
+	public static String[] chr ={"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "END"};
+	
 	public static void main(String[] args){
 		String[] str = {"AMNOPA", "ALEFQR", "KDABGS", "AJCHUT", "AAIWVA", "AZYXAA" };
 		
@@ -17,7 +19,7 @@ public class ABCPath {
 			System.out.println();
 		}
 		
-		int count = Comparison(depthLength,widthLength,strArray);
+		int count = Comparison(depthLength, widthLength, strArray);
 		
 		System.out.println();
 		System.out.println("ans is " + count);
@@ -40,22 +42,21 @@ public class ABCPath {
 		return strArray;
 	}
 	
-	static int Comparison(int depthLength,int widthLength,String[][] strArray){
+	static int Comparison(int depthLength, int widthLength, String[][] strArray){
 		
 		int count = 0;
 		int chrIndex = 0;
-		String[] chr = {"A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z","END"};
 		
 		for (int depth = 0; depth <= depthLength; depth++) {
 			for (int width = 0; width <= widthLength ; width++){
 				
 				chrIndex = 0;
-				int[] crrent = {depth,width};
+				int[] crrent = {depth, width};
 				int crrentDepth = depth;
 				int crrentWidth = width;
 				
 				System.out.println();
-				System.out.print("#####[" + depth + ",");
+				System.out.print("#####[" + depth + ", ");
 				System.out.println(width + "]#####");
 				
 				while(true){
@@ -83,85 +84,50 @@ public class ABCPath {
 						
 						if(crrentWidth != 0 & crrentWidth != widthLength){
 							
-							crrent = NormalC(strArray,crrent,chrIndex);
+							crrent = NormalC(strArray, crrent, chrIndex);
 							
 						}else if(crrentWidth == 0){
 							
-							crrent = LeftSideC(strArray,crrent,chrIndex);
+							crrent = LeftSideC(strArray, crrent, chrIndex);
 							
 						}else if(crrentWidth == widthLength){
 							
-							crrent = RightSideC(strArray,crrent,chrIndex);
+							crrent = RightSideC(strArray, crrent, chrIndex);
 							
 						}
+						
 					}else if(crrentDepth == 0){
 						
 						if(crrentWidth != 0 & crrentWidth != widthLength){
 							
-							crrent = UpSideC(strArray,crrent,chrIndex);
+							crrent = UpSideC(strArray, crrent, chrIndex);
 							
 						}else if(crrentWidth == 0){
 							
-							crrent = UpLeftC(strArray,crrent,chrIndex);
+							crrent = UpLeftC(strArray, crrent, chrIndex);
 							
 						}else if(crrentWidth == widthLength){
 							
-							crrent = UpRightC(strArray,crrent,chrIndex);
+							crrent = UpRightC(strArray, crrent, chrIndex);
 							
 						}
+						
 					}else if(crrentDepth == depthLength){
 						
 						if(crrentWidth != 0 & crrentWidth != widthLength){
 							
-							crrent = UnderSideC(strArray,crrent,chrIndex);
+							crrent = UnderSideC(strArray, crrent, chrIndex);
 							
 						}else if(crrentWidth == 0){
 							
-							crrent = UnderLeftC(strArray,crrent,chrIndex);;
+							crrent = UnderLeftC(strArray, crrent, chrIndex);;
 							
 						}else if(crrentWidth == widthLength){
 							
-							crrent = UnderRightC(strArray,crrent,chrIndex);
+							crrent = UnderRightC(strArray, crrent, chrIndex);
 							
 						}
 					}
-					
-//					if(crrentDepth != 0 & crrentDepth != depthLength & crrentWidth != 0 & crrentWidth != widthLength){
-//						
-//						//crrent = NormalC(strArray,crrent,chrIndex);
-//						
-//					}else if(crrentDepth == 0 & crrentWidth != 0 & crrentWidth != widthLength){
-//						
-//						//crrent = UpSideC(strArray,crrent,chrIndex);
-//						
-//					}else if(crrentDepth != 0 & crrentDepth != depthLength & crrentWidth == 0){
-//						
-//						//crrent = LeftSideC(strArray,crrent,chrIndex);
-//						
-//					}else if(crrentDepth != 0 & crrentDepth != depthLength & crrentWidth == widthLength){
-//						
-//						//crrent = RightSideC(strArray,crrent,chrIndex);
-//						
-//					}else if(crrentDepth == depthLength & crrentWidth != 0 & crrentWidth != widthLength){
-//						
-//						crrent = UnderSideC(strArray,crrent,chrIndex);
-//						
-//					}else if(crrentDepth == 0 & crrentWidth == 0){
-//						
-//						//crrent = UpLeftC(strArray,crrent,chrIndex);
-//						
-//					}else if(crrentDepth == 0 & crrentWidth == widthLength){
-//						
-//						//crrent = UpRightC(strArray,crrent,chrIndex);
-//						
-//					}else if(crrentDepth == depthLength & crrentWidth == 0){
-//						
-//						crrent = UnderLeftC(strArray,crrent,chrIndex);
-//						
-//					}else if(crrentDepth == depthLength & crrentWidth == widthLength){
-//						
-//						crrent = UnderRightC(strArray,crrent,chrIndex);
-//					}
 					
 					if(count < chrIndex){
 						count = chrIndex;
@@ -176,13 +142,13 @@ public class ABCPath {
 		return count;
 	}
 	
-	static int[] NormalC(String[][]strArray,int[] crrent,int chrIndex){
+	static int[] NormalC(String[][]strArray, int[] crrent, int chrIndex){
 		
 		int nextDepth = 0;
 		int nextWidth = 0;
 		
 		System.out.println("NormalC");
-		String[] chr = {"A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z","END"};
+
 		
 		for(int i = -1; i < 2; i++){
 			for(int j = -1; j < 2; j++){
@@ -198,13 +164,12 @@ public class ABCPath {
 		
 		return crrent;
 	}
-	static int[] UpSideC(String[][]strArray,int[] crrent,int chrIndex){
+	static int[] UpSideC(String[][]strArray, int[] crrent, int chrIndex){
 		
 		int nextDepth = 0;
 		int nextWidth = 0;
 		
 		System.out.println("UpSide");
-		String[] chr = {"A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z","END"};
 		
 		for(int i = 0; i < 2; i++){
 			for(int j = -1; j < 2; j++){
@@ -223,14 +188,13 @@ public class ABCPath {
 		
 		return crrent;
 	}
-	static int[] LeftSideC(String[][]strArray,int[] crrent,int chrIndex){
+	static int[] LeftSideC(String[][]strArray, int[] crrent, int chrIndex){
 		
 		int nextDepth = 0;
 		int nextWidth = 0;
 		
 		System.out.println("ok");
 		System.out.println("LeftSide");
-		String[] chr = {"A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z","END"};
 		
 		for(int i = -1; i < 2; i++){
 			for(int j = 0; j < 2; j++){
@@ -250,13 +214,12 @@ public class ABCPath {
 		
 		return crrent;
 	}
-	static int[] RightSideC(String[][]strArray,int[] crrent,int chrIndex){
+	static int[] RightSideC(String[][]strArray, int[] crrent, int chrIndex){
 		
 		int nextDepth = 0;
 		int nextWidth = 0;
 		
 		System.out.println("RightSide");
-		String[] chr = {"A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z","END"};
 		
 		for(int i = -1; i < 2; i++){
 			for(int j = -1; j < 1; j++){
@@ -275,13 +238,12 @@ public class ABCPath {
 		
 		return crrent;
 	}
-	static int[] UnderSideC(String[][]strArray,int[] crrent,int chrIndex){
+	static int[] UnderSideC(String[][]strArray, int[] crrent, int chrIndex){
 		
 		int nextDepth = 0;
 		int nextWidth = 0;
 		
 		System.out.println("UnderSide");
-		String[] chr = {"A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z","END"};
 		
 		for(int i = -1; i < 1; i++){
 			for(int j = -1; j < 2; j++){
@@ -301,13 +263,12 @@ public class ABCPath {
 		
 		return crrent;
 	}
-	static int[] UpLeftC(String[][]strArray,int[] crrent,int chrIndex){
+	static int[] UpLeftC(String[][]strArray, int[] crrent, int chrIndex){
 		
 		int nextDepth = 0;
 		int nextWidth = 0;
 		
 		System.out.println("UpLeft");
-		String[] chr = {"A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z","END"};
 		
 		for(int i = 0; i < 2; i++){
 			for(int j = 0; j < 2; j++){
@@ -327,13 +288,12 @@ public class ABCPath {
 		
 		return crrent;
 	}
-	static int[] UpRightC(String[][]strArray,int[] crrent,int chrIndex){
+	static int[] UpRightC(String[][]strArray, int[] crrent, int chrIndex){
 		
 		int nextDepth = 0;
 		int nextWidth = 0;
 		
 		System.out.println("UpRight");
-		String[] chr = {"A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z","END"};
 		
 		for(int i = 0; i < 2; i++){
 			for(int j = -1; j < 1; j++){
@@ -351,13 +311,12 @@ public class ABCPath {
 		
 		return crrent;
 	}
-	static int[] UnderLeftC(String[][]strArray,int[] crrent,int chrIndex){
+	static int[] UnderLeftC(String[][]strArray, int[] crrent, int chrIndex){
 		
 		int nextDepth = 0;
 		int nextWidth = 0;
 		
 		System.out.println("UnderLeft");
-		String[] chr = {"A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z","END"};
 		
 		for(int i = -1; i < 1; i++){
 			for(int j = 0; j < 2; j++){
@@ -377,13 +336,12 @@ public class ABCPath {
 		
 		return crrent;
 	}
-	static int[] UnderRightC(String[][]strArray,int[] crrent,int chrIndex){
+	static int[] UnderRightC(String[][]strArray, int[] crrent, int chrIndex){
 		
 		int nextDepth = 0;
 		int nextWidth = 0;
 		
 		System.out.println("UnderRight");
-		String[] chr = {"A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z","END"};
 		int depth = -1;
 		int width = -1;
 		
