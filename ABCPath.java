@@ -25,22 +25,34 @@ public class ABCPath {
 //		
 //		System.out.println(deta);
 		
-		String[] str = {"AMNOPA", "ALEFQR", "KDABGS", "AJCHUT", "AAIWVA", "AZYXAA" };
+		String[] str = {"KCBVNRXSPVEGUEUFCODMOAXZYWEEWNYAAXRBKGACSLKYRVRKIO", "DIMCZDMFLAKUUEPMPGRKXSUUDFYETKYQGQHNFFEXFPXNYEFYEX", "DMFRPZCBOWGGHYAPRMXKZPYCSLMWVGMINAVRYUHJKBBRONQEXX", "ORGCBHXWMTIKYNLFHYBVHLZFYRPOLLAMBOPMNODWZUBLSQSDZQ", "QQXUAIPSCEXZTTINEOFTJDAOBVLXZJLYOQREADUWWSRSSJXDBV", "PEDHBZOVMFQQDUCOWVXZELSEBAMBRIKBTJSVMLCAABHAQGBWRP", "FUSMGCSCDLYQNIXTSTPJGZKDIAZGHXIOVGAZHYTMIWAIKPMHTJ", "QMUEDLXSREWNSMEWWRAUBFANSTOOJGFECBIROYCQTVEYGWPMTU", "FFATSKGRQJRIQXGAPLTSXELIHXOPUXIDWZHWNYUMXQEOJIAJDH", "LPUTCFHYQIWIYCVOEYHGQGAYRBTRZINKBOJULGYCULRMEOAOFP", "YOBMTVIKVJOSGRLKTBHEJPKVYNLJQEWNWARPRMZLDPTAVFIDTE", "OOBFZFOXIOZFWNIMLKOTFHGKQAXFCRZHPMPKGZIDFNBGMEAXIJ", "VQQFYCNJDQGJPYBVGESDIAJOBOLFPAOVXKPOVODGPFIYGEWITS", "AGVBSRLBUYOULWGFOFFYAAONJTLUWRGTYWDIXDXTMDTUYESDPK", "AAJOYGCBYTMXQSYSPTBWCSVUMNPRGPOEAVVBGMNHBXCVIQQINJ", "SPEDOAHYIDYUJXGLWGVEBGQSNKCURWYDPNXBZCDKVNRVEMRRXC", "DVESXKXPJBPSJFSZTGTWGAGCXINUXTICUCWLIBCVYDYUPBUKTS", "LPOWAPFNDRJLBUZTHYVFHVUIPOMMPUZFYTVUVDQREFKVWBPQFS", "QEASCLDOHJFTWMUODRKVCOTMUJUNNUYXZEPRHYOPUIKNGXYGBF", "XQUPBSNYOXBPTLOYUJIHFUICVQNAWFMZAQZLTXKBPIAKXGBHXX"};
 		
 		int depthLength = str.length - 1;
 		int widthLength = str[0].length() - 1;
 		
 		String[][] strArray = DoubleArray(str);
 		
+		System.out.print("    ");
+		
+		for(int width = 0; width <= widthLength ;width++){
+			System.out.printf("%3d",width);;
+		}
+		
+		System.out.println();
+		System.out.println();
+		
 		for (int depth = 0; depth <= depthLength; depth++) {
+			System.out.printf("%3d   ",depth);
+			widthLength = str[depth].length() - 1;
 			for (int width = 0; width <= widthLength ; width++){
-				System.out.print(strArray[depth][width] + " ");
+				System.out.print(strArray[depth][width] + "  ");
 			}
 			System.out.println();
 		}
 		
 		int count = Comparison(depthLength, widthLength, strArray);
 		
+		System.out.println();
 		System.out.println();
 		System.out.println("Returns:" + count);
 		if(count == 0){
@@ -83,7 +95,12 @@ public class ABCPath {
 				
 				while(true){
 					
-
+					if(chrIndex != 0){
+						System.out.println(strArray[currentDepth][currentWidth]);
+						System.out.println(chr[chrIndex]);
+						boolean ans = ((strArray[currentDepth][currentWidth]).equals(chr[chrIndex]));
+						System.out.println(ans);
+					}
 					
 					if(!strArray[currentDepth][currentWidth].equals(chr[chrIndex])){
 						
