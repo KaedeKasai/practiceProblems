@@ -1,6 +1,6 @@
 package practiceProblems;
 
-import java.util.Scanner;
+//import java.util.Scanner;
 
 public class ABCPath {
 	
@@ -15,17 +15,17 @@ public class ABCPath {
 	
 	public static void main(String[] args){
 		
-		Scanner scan = new Scanner(System.in);
+//		Scanner scan = new Scanner(System.in);
+//		
+//		String deta;
+//		
+//		System.out.println("二次配列データ入力");
+//		deta = scan.next();
+//		scan.close();
+//		
+//		System.out.println(deta);
 		
-		String deta;
-		
-		System.out.println("二次配列データ入力");
-		deta = scan.next();
-		scan.close();
-		
-		System.out.println(deta);
-		
-		String[] str = {deta};
+		String[] str = {"AMNOPA", "ALEFQR", "KDABGS", "AJCHUT", "AAIWVA", "AZYXAA" };
 		
 		int depthLength = str.length - 1;
 		int widthLength = str[0].length() - 1;
